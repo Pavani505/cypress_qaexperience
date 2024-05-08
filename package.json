@@ -1,0 +1,13 @@
+{
+  "name": "cypress_qaexperience",
+  "version": "1.0.0",
+  "description": "projeto de testes e2e no mark L",
+  "main": "index.js",
+  "repository": "https://github.com/Pavani505/cypress_qaexperience.git",
+  "author": "André Pavani",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "cypress": "^13.8.1"
+  }
+}
