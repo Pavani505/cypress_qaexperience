@@ -33,11 +33,3 @@ describe('tasks', () => {
   })
 
 })
-
-Cypress.Commands.add('createTask', (taskName) => {
-  cy.visit('/')
-  cy.title()
-    .should('eq', 'Gerencie suas tarefas com Mark L')
-  cy.get('#newTask')
-    .type(taskName + '{enter}')
-})

@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import '../modules/task_modules.cy'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
