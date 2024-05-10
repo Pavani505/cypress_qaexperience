@@ -63,20 +63,41 @@ describe('tasks', () => {
     })
   }
 
+  function criarTarefa(nome) {
+    cy.request({
+      url: urlApiBase + '/tasks',
+      method: 'POST',
+      body: {name: nome,
+            is_done: false
+      }
+    }).then(response => {
+      expect(response.status).to.eq(201)
+    })
+  }
+
   it('deve cadastrar uma nova tarefa', () => {
-    // removerTodasTarefas()
     removerTarefaNome('Ler um livro')
     cy.visit('/')
     cy.title()
       .should('eq', 'Gerencie suas tarefas com Mark L')
     cy.get('#newTask')
       .type('Ler um livro{enter}')
-    // cy.get('main div p')
-    //   .should('be.visible')
-    //   .should('contain.text', 'Ler um livro')
     cy.contains('main div p', 'Ler um livro')
       .should('be.visible')
     // cy.wait (9999)
+  })
+
+  it('não deve cadastrar uma nova tarefa ja existente', () => {
+    removerTarefaNome('Ler um livro')
+    criarTarefa('Ler um livro')
+    cy.visit('/')
+    cy.title()
+      .should('eq', 'Gerencie suas tarefas com Mark L')
+    cy.get('#newTask')
+      .type('Ler um livro{enter}')
+    cy.get('#swal2-html-container')
+      .should('be.visible')
+      .should('have.text', 'Task already exists!')
   })
 
 })
