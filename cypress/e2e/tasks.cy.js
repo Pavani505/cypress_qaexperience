@@ -1,8 +1,7 @@
 /// <reference types="cypress" />
 
 import { faker } from '@faker-js/faker';
-import ApiHelper from '../helper/api.cy';
-const apiHelper = new ApiHelper()
+import apiHelper from '../helper/api.cy';
 var randomName = faker.person.fullName()
 // const urlApiBase = 'http://localhost:3333'
 

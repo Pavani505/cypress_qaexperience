@@ -1,4 +1,3 @@
-
 class ApiHelper {
   constructor() {
     this.urlApiBase = 'http://localhost:3333';
@@ -38,7 +37,7 @@ class ApiHelper {
       for (var i = 0; i < tamanho; i++) {
         var tarefas = response.body[i]
         var tarefasId = tarefas.id
-        this.removerTarefas(tarefasId)
+        this.removerTarefas(tarefasId) // Corrigido para usar 'this'
       }  
     })
   }
@@ -52,10 +51,10 @@ class ApiHelper {
       var tamanho = response.body.length
       for (var i = 0; i < tamanho; i++) {
         var tarefas = response.body[i]
-          if (tarefas.name === nome) {
-            var tarefasId = tarefas.id
-            this.removerTarefas(tarefasId)
-          }
+        if (tarefas.name === nome) {
+          var tarefasId = tarefas.id
+          this.removerTarefas(tarefasId) // Corrigido para usar 'this'
+        }
       }  
     })
   }
@@ -74,4 +73,6 @@ class ApiHelper {
 
 }
 
-export default ApiHelper
+const apiHelper = new ApiHelper(); // Instanciação da classe
+
+export default apiHelper; // Exporta a instância
