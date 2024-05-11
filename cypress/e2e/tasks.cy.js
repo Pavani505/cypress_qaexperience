@@ -6,6 +6,9 @@ var randomName = faker.person.fullName()
 // const urlApiBase = 'http://localhost:3333'
 
 describe('tasks', () => {
+  beforeEach(() => {
+    cy.acessarHome()
+  })  
 
   // Ex de criar massa de dados com const
   // const taskName = {
@@ -30,6 +33,11 @@ describe('tasks', () => {
     cy.get('#swal2-html-container')
       .should('be.visible')
       .should('have.text', 'Task already exists!')
+  })
+
+  it('não deve cadastrar uma nova tarefa com campo em branco', () => {
+    cy.createTask()
+    cy.isRequired('#newTask', 'This is a required field')
   })
 
 })
