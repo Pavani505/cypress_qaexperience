@@ -10,6 +10,8 @@ module.exports = defineConfig({
       apiUrl: 'http://localhost:3333'
     },
     defaultCommandTimeout: 10000,
-    video: true
+    video: true,
+    viewportWidth: 1920,
+    viewportHeight: 1080
   },
 });

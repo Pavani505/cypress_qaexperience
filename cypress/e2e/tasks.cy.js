@@ -12,11 +12,13 @@ describe('tasks', () => {
       cy.fixture('tasks').then(t => {
         testData = t
       })
+
   })
 
   beforeEach(() => {
     apiHelper.removerTodasTarefas()
     cy.acessarHome()
+    // cy.viewport(1920, 1080)
   })
 
       context('cadastro', () => {
