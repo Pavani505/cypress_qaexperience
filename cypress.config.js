@@ -6,6 +6,9 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: 'http://localhost:3000',
+    env: {
+      apiUrl: 'http://localhost:3333'
+    },
     defaultCommandTimeout: 10000,
     video: true
   },

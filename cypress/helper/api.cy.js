@@ -1,12 +1,12 @@
 class ApiHelper {
-  constructor() {
-    this.urlApiBase = 'http://localhost:3333';
-  }
+  // constructor() {
+  //   this.urlApiBase = 'http://localhost:3333';
+  // }
 
   listarTarefas() {
     var todasAsTarefas = []
     cy.request({
-      url: this.urlApiBase + '/tasks',
+      url: Cypress.env('apiUrl') + '/tasks',
       method: 'GET'
     }).then(response => {
       expect(response.status).to.eq(200)
@@ -20,7 +20,7 @@ class ApiHelper {
 
   removerTarefas(id) {
     cy.request({
-      url: this.urlApiBase + '/tasks/' + id,
+      url: Cypress.env('apiUrl') + '/tasks/' + id,
       method: 'DELETE'
     }).then(response => {
       expect(response.status).to.eq(204)
@@ -29,7 +29,7 @@ class ApiHelper {
 
   removerTodasTarefas() {
     cy.request({
-      url: this.urlApiBase + '/tasks',
+      url: Cypress.env('apiUrl') + '/tasks',
       method: 'GET'
     }).then(response => {
       expect(response.status).to.eq(200)
@@ -44,7 +44,7 @@ class ApiHelper {
 
   removerTarefaNome(nome) {
     cy.request({
-      url: this.urlApiBase + '/tasks',
+      url: Cypress.env('apiUrl') + '/tasks',
       method: 'GET'
     }).then(response => {
       expect(response.status).to.eq(200)
@@ -61,7 +61,7 @@ class ApiHelper {
 
   criarTarefa(nome) {
     cy.request({
-      url: this.urlApiBase + '/tasks',
+      url: Cypress.env('apiUrl') + '/tasks',
       method: 'POST',
       body: {name: nome,
             is_done: false
