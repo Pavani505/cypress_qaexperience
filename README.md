@@ -32,3 +32,18 @@ npm run dev --> Rodar sempre que desligar o PC pra startar o servidor local
 
 yarn add @faker-js/faker --dev
 yarn remove @faker-js/faker
+
+# Executando em background
+yarn cypress run
+
+
+# Instalando relatorio allure
+https://github.com/shelex/cypress-allure-plugin
+
+yarn add -D @shelex/cypress-allure-plugin
+
+yarn add allure-commandline -D
+
+yarn cypress run --env allure=true
+yarn allure serve
+
